@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE juicio SYSTEM "examen1.dtd">
+<juicio>
+    <abogado nombre="Harvey Specter" defiende="Martin Smith" acusa="DanielHardman"/>
+    <abogado nombre="Mike Ross" defiende="Rick Hoffman" acusa="TravisTanner"/>
+    <abogado nombre="Donna Paulsen" acusa="HenryGerard" especialidad="civil"/>
+    <delitos tipo="robo" acusado="DanielHardman">
+        <multa>15.000 dolares</multa>
+        <antedecentes>Si</antedecentes>
+   </delitos>
+   <delitos tipo="atraco" acusado="TravisTanner">
+        <carcel nombre="Texas">15 años</carcel>
+   </delitos>
+   <lugar>
+        <ciudad nombre="Chicago"/>
+        <personasCitadas nombre="DanielHardman TravisTanner"/>
+        <juzgado> &lugarSucede; </juzgado>
+   </lugar>
+</juicio>

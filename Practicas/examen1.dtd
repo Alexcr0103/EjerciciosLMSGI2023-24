@@ -1,0 +1,22 @@
+<!ELEMENT juicio (abogado | delitos | lugar)*> <!-- Cardinalidad 0, muchos-->
+<!ENTITY % atributoNombre "nombre (Chicago | California | Texas) 'New York'"> <!-- Entidad parámetro-->
+<!ELEMENT abogado EMPTY> <!-- Elemento vacio -->
+<!ATTLIST abogado nombre CDATA #REQUIRED
+                  defiende CDATA #IMPLIED
+                  acusa ID #REQUIRED
+                  especialidad CDATA #FIXED "civil"> <!-- Uso de required, implied y fixed--> <!-- Uso de ID-->
+<!ELEMENT delitos ((multa | carcel), antedecentes?)> <!-- Cardinalidad puede o no estar--> <!-- Secuencia de elementos con optativa-->
+<!ATTLIST delitos tipo CDATA #REQUIRED               
+                  acusado IDREF #IMPLIED> <!-- Uso de IDREF-->
+<!ELEMENT multa (#PCDATA | antedecentes)*> <!-- Tipo mixto-->
+<!ELEMENT antedecentes (#PCDATA)>
+<!ELEMENT carcel (#PCDATA)>
+<!ATTLIST carcel %atributoNombre;> <!-- Uso de entidad parámetro-->
+<!ELEMENT antecedentes (#PCDATA)>
+<!ELEMENT lugar (ciudad+, personasCitadas, juzgado)> <!-- Cardinalidad 1 o mas-->
+<!ELEMENT ciudad (#PCDATA)>
+<!ATTLIST ciudad %atributoNombre;> <!-- Uso de entidad parámetro-->
+<!ELEMENT personasCitadas (#PCDATA)>
+<!ATTLIST personasCitadas nombre IDREFS #REQUIRED> <!-- Uso de IDREFS-->
+<!ELEMENT juzgado (#PCDATA)>
+<!ENTITY lugarSucede "Juzgado Penal"> <!-- Enitdad general interna-->
